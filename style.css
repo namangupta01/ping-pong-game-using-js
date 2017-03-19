@@ -1,0 +1,37 @@
+/*body{
+	background: linear-gradient(
+		to bottom,black,white);
+	}*/
+#game-area{
+	display: flex;
+	justify-content:space-between;
+	align-items:center;
+	height: 50%;
+	width: 65%;
+	background: gray;
+	border: solid gray;
+}
+#left-bar{
+	position: relative;
+	height: 25%;
+	width: 1.1%;
+	background: white;
+	margin-left: 8px;
+	border-radius: 15%;
+}
+#right-bar{
+	position: relative;
+	height: 25%;
+	width: 1.1%;
+	background: white;
+	margin-right: 8px;
+	border-radius: 15%;
+}
+#ball{
+	background: red;
+	position: relative;
+	height: 5vw;
+	width: 5vw;
+	border-radius: 50%;
+
+}
