@@ -14,15 +14,15 @@ var rightBarInitialTop=rightBarTop;
 var start=false;
 var ballSpeedX=10;
 var ballSpeedY=10;
-var ballDiameter=ball.getBoundingClientRect().width;
-var ballCenterX=ball.getBoundingClientRect().left+(ballDiameter/2);
-var ballCenterY=ball.getBoundingClientRect().top+(ballDiameter/2);
+var ballRadius=ball.getBoundingClientRect().width/2;
+var ballCenterX=ball.getBoundingClientRect().left+(ballRadius);
+var ballCenterY=ball.getBoundingClientRect().top+(ballRadius);
 var ballInitialPositionX=ballCenterX-ballRadius;
 var ballInitialPositionY=ballCenterX-ballRadius;
 var ballInitialCenterX=ballCenterX;
 var ballInitialCentery=ballCenterY;
 var ballPositionTop=ballInitialPositionY;
-var ballPositionLeft=ballInitialPositionY;
+var ballPositionLeft=ballInitialPositionX;
 function gameController(e){
 	if(e.which==32){
 		start=!start;
@@ -72,14 +72,18 @@ function gameController(e){
 document.addEventListener("keydown",gameController);
 function gameStart(){
 	if(start){
-		ballCenterX = ballCenterX + 10;
-		ballCenterY = ballCenterY + 10;
-		ball.style.top = ballCenterY+"px";
-		ball.style.left = ballCenterX+"px";
+		ballCenterX = ballCenterX + ballSpeedX;
+		ballCenterY = ballCenterY + ballSpeedY;
+		ballPositionLeft=ballPositionLeft+ballSpeedX;
+		ballPositionTop=ballPositionTop+ballSpeedY;
+		ball.style.top = ballPositionTop - ballInitialPositionY +"px";
+		ball.style.left = ballPositionLeft - ballInitialPositionX +"px";
 	}
 }
 window.onload=setInterval(gameStart,50);
 function speedIncrementer(){
-	ballSpeedX=ballSpeedX+4;
-	ballSpeedY=ballSpeedy+4;
+	console.log("speed");
+	ballSpeedX=ballSpeedX+2;
+	ballSpeedY=ballSpeedY+2;
 }
+setInterval(speedIncrementer,10000);
