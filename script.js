@@ -104,9 +104,15 @@ function gameStart(){
 	}
 }
 window.onload=setInterval(gameStart,25);
-/*function speedIncrementer(){
+function speedIncrementer(){
 	console.log("speed");
-	ballSpeedX=ballSpeedX+1;
-	ballSpeedY=ballSpeedY+1;
+	if(ballSpeedX>0)
+		ballSpeedX=ballSpeedX+0.1;
+	else
+		ballSpeedX=ballSpeedX-0.1;
+	if (ballSpeedY>0)
+		ballSpeedY=ballSpeedY+0.1;
+	else 
+		ballSpeedY=ballSpeedY-0.1;
 }
-setInterval(speedIncrementer,10000);*/
+setInterval(speedIncrementer,1000);

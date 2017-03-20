@@ -29,7 +29,7 @@ body{
 	border-radius: 15%;
 }
 #ball{
-	background: red;
+	background: black;
 	position: relative;
 	height: 5vw;
 	width: 5vw;
