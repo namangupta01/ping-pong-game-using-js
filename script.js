@@ -4,6 +4,10 @@ leftBar=document.getElementById("left-bar");
 rightBar=document.getElementById("right-bar");
 gameArea=document.getElementById("game-area");
 ball=document.getElementById("ball");
+var gameAreaTop=gameArea.getBoundingClientRect().top;
+var gameAreaBottom=gameArea.getBoundingClientRect().bottom;
+var gameAreaLeft=gameArea.getBoundingClientRect().left;
+var gameAreaRight=gameArea.getBoundingClientRect().right;
 var gameAreaHeight=gameArea.getBoundingClientRect().height;
 var leftBarHeight=leftBar.getBoundingClientRect().height;
 var rightBarHeight=rightBar.getBoundingClientRect().height;
@@ -11,15 +15,15 @@ var leftBarTop=leftBar.getBoundingClientRect().top;
 var rightBarTop=rightBar.getBoundingClientRect().top;
 var leftBarInitialTop=leftBarTop;
 var rightBarInitialTop=rightBarTop;
+var ballPositionTop=ball.getBoundingClientRect().top;
+var ballPositionLeft=ball.getBoundingClientRect().left;
+var ballInitialPositionX=ballPositionLeft;
+var ballInitialPositionY=ballPositionTop;
 var ballRadius=ball.getBoundingClientRect().width/2;
-var ballCenterX=ball.getBoundingClientRect().left+(ballRadius);
-var ballCenterY=ball.getBoundingClientRect().top+(ballRadius);
-var ballInitialPositionX=ballCenterX-ballRadius;
-var ballInitialPositionY=ballCenterX-ballRadius;
+var ballCenterX=ballPositionLeft+(ballRadius);
+var ballCenterY=ballPositionTop+(ballRadius);
 var ballInitialCenterX=ballCenterX;
 var ballInitialCentery=ballCenterY;
-var ballPositionTop=ballInitialPositionY;
-var ballPositionLeft=ballInitialPositionX;
 var start=false;
 var ballSpeedY
 var ballSpeedX=(Math.random()-.50)*40;
@@ -83,9 +87,20 @@ function gameStart(){
 		ballCenterY = ballCenterY + ballSpeedY;
 		ballPositionLeft=ballPositionLeft+ballSpeedX;
 		ballPositionTop=ballPositionTop+ballSpeedY;
-		
 		ball.style.top = ballPositionTop - ballInitialPositionY +"px";
 		ball.style.left = ballPositionLeft - ballInitialPositionX +"px";
+		if(ballPositionTop<gameAreaTop){
+			ballSpeedY=ballSpeedY*(-1);
+		}
+		else if(ballPositionTop + 2*ballRadius>gameAreaBottom){
+			ballSpeedY=ballSpeedY*(-1);	
+		}
+		else if(ballPositionLeft<gameAreaLeft){
+			ballSpeedX = ballSpeedX *(-1);
+		}
+		else if(ballPositionLeft+2*ballRadius>gameAreaRight){
+			ballSpeedX = ballSpeedX *(-1);	
+		}
 	}
 }
 window.onload=setInterval(gameStart,25);
