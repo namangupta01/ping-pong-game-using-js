@@ -11,9 +11,6 @@ var leftBarTop=leftBar.getBoundingClientRect().top;
 var rightBarTop=rightBar.getBoundingClientRect().top;
 var leftBarInitialTop=leftBarTop;
 var rightBarInitialTop=rightBarTop;
-var start=false;
-var ballSpeedX=20;
-var ballSpeedY=20;
 var ballRadius=ball.getBoundingClientRect().width/2;
 var ballCenterX=ball.getBoundingClientRect().left+(ballRadius);
 var ballCenterY=ball.getBoundingClientRect().top+(ballRadius);
@@ -23,6 +20,16 @@ var ballInitialCenterX=ballCenterX;
 var ballInitialCentery=ballCenterY;
 var ballPositionTop=ballInitialPositionY;
 var ballPositionLeft=ballInitialPositionX;
+var start=false;
+var ballSpeedY
+var ballSpeedX=(Math.random()-.50)*40;
+var random = Math.random()-.50;
+if(random>0){
+	ballSpeedY=Math.sqrt(400-Math.pow(ballSpeedX,2));
+}
+else {
+	ballSpeedY=Math.sqrt(400-Math.pow(ballSpeedX,2))*(-1);
+}
 function gameController(e){
 	if(e.which==32){
 		start=!start;
