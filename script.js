@@ -12,8 +12,8 @@ var rightBarTop=rightBar.getBoundingClientRect().top;
 var leftBarInitialTop=leftBarTop;
 var rightBarInitialTop=rightBarTop;
 var start=false;
-var ballSpeedX=10;
-var ballSpeedY=10;
+var ballSpeedX=20;
+var ballSpeedY=20;
 var ballRadius=ball.getBoundingClientRect().width/2;
 var ballCenterX=ball.getBoundingClientRect().left+(ballRadius);
 var ballCenterY=ball.getBoundingClientRect().top+(ballRadius);
@@ -76,14 +76,15 @@ function gameStart(){
 		ballCenterY = ballCenterY + ballSpeedY;
 		ballPositionLeft=ballPositionLeft+ballSpeedX;
 		ballPositionTop=ballPositionTop+ballSpeedY;
+		
 		ball.style.top = ballPositionTop - ballInitialPositionY +"px";
 		ball.style.left = ballPositionLeft - ballInitialPositionX +"px";
 	}
 }
-window.onload=setInterval(gameStart,50);
-function speedIncrementer(){
+window.onload=setInterval(gameStart,25);
+/*function speedIncrementer(){
 	console.log("speed");
-	ballSpeedX=ballSpeedX+2;
-	ballSpeedY=ballSpeedY+2;
+	ballSpeedX=ballSpeedX+1;
+	ballSpeedY=ballSpeedY+1;
 }
-setInterval(speedIncrementer,10000);
+setInterval(speedIncrementer,10000);*/
