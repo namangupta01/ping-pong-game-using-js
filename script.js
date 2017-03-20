@@ -24,7 +24,7 @@ var ballCenterX=ballPositionLeft+(ballRadius);
 var ballCenterY=ballPositionTop+(ballRadius);
 var ballInitialCenterX=ballCenterX;
 var ballInitialCentery=ballCenterY;
-var start=false;
+var start=true;
 var ballSpeedY
 var ballSpeedX=(Math.random()-.50)*40;
 var random = Math.random()-.50;
