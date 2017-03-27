@@ -31,15 +31,15 @@ var startingOfGame = (function(){
 	var leftBarRight=leftBar.getBoundingClientRect().right;
 	var rightBarLeft=rightBar.getBoundingClientRect().left;
 	var start=false;
-	var ballSpeedY;
+	var ballSpeedX;
 	var speedOfBar=50;
-	var ballSpeedX=(Math.random()-.50)*40;
+	var ballSpeedY=(Math.random()-.50)*20;
 	var random = Math.random()-.50;
 	if(random>0){
-		ballSpeedY=Math.sqrt(400-Math.pow(ballSpeedX,2));
+		ballSpeedX=Math.sqrt(400-Math.pow(ballSpeedY,2));
 	}
 	else {
-		ballSpeedY=Math.sqrt(400-Math.pow(ballSpeedX,2))*(-1);
+		ballSpeedX=Math.sqrt(400-Math.pow(ballSpeedY,2))*(-1);
 	}
 	function gameController(e){
 		if(e.which==32){
