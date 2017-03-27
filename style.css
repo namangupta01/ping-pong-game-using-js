@@ -1,6 +1,6 @@
 body{
-/*	background: linear-gradient(
-		to bottom,black,white);*/
+	/*	background: linear-gradient(
+			to bottom,black,white);*/
 	}
 #game-area{
 	display: flex;
@@ -14,7 +14,7 @@ body{
 }
 #left-bar{
 	position: relative;
-	height: 25%;
+	height: 30%;
 	width: 1.1%;
 	background: white;
 	margin-left: 8px;
@@ -22,7 +22,7 @@ body{
 }
 #right-bar{
 	position: relative;
-	height: 25%;
+	height: 30%;
 	width: 1.1%;
 	background: white;
 	margin-right: 8px;
@@ -31,8 +31,8 @@ body{
 #ball{
 	background: black;
 	position: relative;
-	height: 5vw;
-	width: 5vw;
+	height:3vw;
+	width: 3vw;
 	border-radius: 50%;
 
 }
