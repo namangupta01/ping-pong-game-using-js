@@ -35,14 +35,33 @@ var startingOfGame = (function(){
 	var speedOfBar=50;
 	var ballSpeedY=(Math.random()-.50)*20;
 	var random = Math.random()-.50;
+	var speedIncrementerId;
 	if(random>0){
 		ballSpeedX=Math.sqrt(400-Math.pow(ballSpeedY,2));
 	}
 	else {
 		ballSpeedX=Math.sqrt(400-Math.pow(ballSpeedY,2))*(-1);
 	}
+
+	function speedIncrementer(){
+		console.log("speed");
+		if(ballSpeedX>0)
+			ballSpeedX=ballSpeedX+.5;
+		else
+			ballSpeedX=ballSpeedX-.5;
+		if (ballSpeedY>0)
+			ballSpeedY=ballSpeedY+.5;
+		else 
+			ballSpeedY=ballSpeedY-.5;
+	}
 	function gameController(e){
 		if(e.which==32){
+			if (start===true){
+				clearInterval(speedIncrementerId);
+			}
+			else{
+				speedIncrementerId=setInterval(speedIncrementer,1000);
+			}
 			start=!start;
 		}
 		else if((e.which==38||e.which==40)&&start==true){
@@ -132,18 +151,6 @@ var startingOfGame = (function(){
 		}
 	}
 	window.onload=setInterval(gameStart,20);
-	function speedIncrementer(){
-		console.log("speed");
-		if(ballSpeedX>0)
-			ballSpeedX=ballSpeedX+0.1;
-		else
-			ballSpeedX=ballSpeedX-0.1;
-		if (ballSpeedY>0)
-			ballSpeedY=ballSpeedY+0.1;
-		else 
-			ballSpeedY=ballSpeedY-0.1;
-	}
-	setInterval(speedIncrementer,1000);
 	function setByDefault(){
 		ball.style.removeProperty("top");
 		ball.style.removeProperty("left");
