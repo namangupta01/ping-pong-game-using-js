@@ -128,7 +128,7 @@ var startingOfGame = (function(){
 			else if(ballPositionTop + 2*ballRadius>gameAreaBottom){
 				ballSpeedY=ballSpeedY*(-1);	
 			}
-			else if(ballPositionLeft<leftBarRight){
+			else if(ballPositionLeft<leftBarRight && ballSpeedX <0){
 					if((ballPositionTop<leftBarTop&&ballPositionBottom>leftBarTop)||(ballPositionBottom>leftBarBottom&&ballPositionTop<leftBarBottom)||(ballPositionTop>leftBarTop&&ballPositionBottom<leftBarBottom)){
 						ballSpeedX = ballSpeedX *(-1);	
 				}
@@ -138,7 +138,7 @@ var startingOfGame = (function(){
 						setByDefault();
 				}
 			}
-			else if(ballPositionRight>rightBarLeft){
+			else if(ballPositionRight>rightBarLeft  && ballSpeedX>0){
 				if((ballPositionTop<rightBarTop&&ballPositionBottom>rightBarTop)||(ballPositionBottom>rightBarBottom&&ballPositionTop<rightBarBottom)||(ballPositionTop>rightBarTop&&ballPositionBottom<rightBarBottom)){
 					ballSpeedX = ballSpeedX *(-1);	
 				}
