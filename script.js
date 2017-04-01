@@ -46,13 +46,13 @@ var startingOfGame = (function(){
 	function speedIncrementer(){
 		console.log("speed");
 		if(ballSpeedX>0)
-			ballSpeedX=ballSpeedX+.5;
+			ballSpeedX=ballSpeedX+.2;
 		else
-			ballSpeedX=ballSpeedX-.5;
+			ballSpeedX=ballSpeedX-.2;
 		if (ballSpeedY>0)
-			ballSpeedY=ballSpeedY+.5;
+			ballSpeedY=ballSpeedY+.2;
 		else 
-			ballSpeedY=ballSpeedY-.5;
+			ballSpeedY=ballSpeedY-.2;
 	}
 	function gameController(e){
 		if(e.which==32){
