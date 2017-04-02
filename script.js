@@ -33,7 +33,7 @@ var startingOfGame = (function(){
 	var start=false;
 	var ballSpeedX;
 	var speedOfBar=50;
-	var ballSpeedY=(Math.random()-.50)*20;
+	var ballSpeedY=(Math.random()-.50)*10;
 	var random = Math.random()-.50;
 	var speedIncrementerId;
 	if(random>0){
